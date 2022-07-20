@@ -1,0 +1,23 @@
+{
+  "name": "quick-maths",
+  "version": "1.0.0",
+  "description": "A simple JavaScript project for practicing basic math. - Addition - Subtraction - Multiplication - Division",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass styles/sass/main.scss styles/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gile987/quick-maths.git"
+  },
+  "author": "Mladen Reljic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gile987/quick-maths/issues"
+  },
+  "homepage": "https://github.com/Gile987/quick-maths#readme",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
