@@ -14,19 +14,28 @@ const generateEquation = () => {
     let allAnswers = [];
 
     answer = firstNumber + secondNumber;
-    document.querySelector('#num1').innerHTML = firstNumber;
-    document.querySelector('#num2').innerHTML = secondNumber;
 
-    allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
-    allAnswers.sort(() => Math.random() - 0.5);
+    if (wrongAnswerOne != wrongAnswerTwo && wrongAnswerOne != answer && wrongAnswerTwo != answer) {
+      document.querySelector('#num1').innerHTML = firstNumber;
+      document.querySelector('#num2').innerHTML = secondNumber;
 
-    optionOne.innerHTML = allAnswers[0];
-    optionTwo.innerHTML = allAnswers[1];
-    optionThree.innerHTML = allAnswers[2];
+      allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
+      allAnswers.sort(() => Math.random() - 0.5);
+
+      optionOne.innerHTML = allAnswers[0];
+      optionTwo.innerHTML = allAnswers[1];
+      optionThree.innerHTML = allAnswers[2];
+    } else {
+      generateEquation();
+    };
 };
+
+
 
 const checkAnswer = (event) => {
     if (event.target.innerHTML == answer) {
+        correctAudio.pause();
+        correctAudio.currentTime = 0;
         correctAudio.play();
         generateEquation();
     } else {
