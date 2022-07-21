@@ -35,6 +35,7 @@ body {
     color: #fff;
     text-decoration: none;
   }
+
   .current a::after {
     content: "_";
     background-color: #fff;
@@ -46,6 +47,7 @@ body {
 .wrapper {
   display: grid;
   grid-template-columns: 82% 18%;
+
   .equation {
     font-size: 3.8rem;
     background-color: #fff;
@@ -59,17 +61,43 @@ body {
       padding: 1.25rem;
     }
   }
+
   .answer_options {
     font-size: 4.188rem;
     margin-right: 0.625rem;
 
     h1 {
       cursor: pointer;
-      color: #FAE7B5;
+      color: #fff;
       border-radius: 0.188rem;
       margin-top: 0.625rem;
       text-align: center;
       width: 100%;
+    }
+
+    #option1 {
+      background-color: #fabeb5;
+      transition: 0.8s;
+      &:hover {
+        background-color: #fff;
+        color: #fabeb5;
+      }
+    }
+    #option2 {
+      background-color: #b5d9fa;
+      transition: 0.8s;
+      &:hover {
+        background-color: #fff;
+        color: #b5d9fa;
+      }
+    }
+    #option3 {
+      background-color: #afff92;
+      transition: 0.8s;
+      &:hover {
+        background-color: #fff;
+        color: #afff92;
+      }
     }
   }
 }

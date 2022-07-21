@@ -49,8 +49,26 @@ body {
     margin-right: 0.625rem; }
     .wrapper .answer_options h1 {
       cursor: pointer;
-      color: #FAE7B5;
+      color: #fff;
       border-radius: 0.188rem;
       margin-top: 0.625rem;
       text-align: center;
       width: 100%; }
+    .wrapper .answer_options #option1 {
+      background-color: #fabeb5;
+      transition: 0.8s; }
+      .wrapper .answer_options #option1:hover {
+        background-color: #fff;
+        color: #fabeb5; }
+    .wrapper .answer_options #option2 {
+      background-color: #b5d9fa;
+      transition: 0.8s; }
+      .wrapper .answer_options #option2:hover {
+        background-color: #fff;
+        color: #b5d9fa; }
+    .wrapper .answer_options #option3 {
+      background-color: #afff92;
+      transition: 0.8s; }
+      .wrapper .answer_options #option3:hover {
+        background-color: #fff;
+        color: #afff92; }
