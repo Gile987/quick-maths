@@ -30,8 +30,6 @@ const generateEquation = () => {
     };
 };
 
-
-
 const checkAnswer = (event) => {
     if (event.target.innerHTML == answer) {
         correctAudio.pause();
