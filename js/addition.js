@@ -7,31 +7,25 @@ const correctAudio = document.querySelector("#correct");
 let answer = 0;
 
 const generateEquation = () => {
-  let firstNumber = Math.floor(Math.random() * 10);
-  let secondNumber = Math.floor(Math.random() * 10);
-  let wrongAnswerOne = Math.floor(Math.random() * 10);
-  let wrongAnswerTwo = Math.floor(Math.random() * 10);
+  let randomNumbers = generateMultipleNumbers(4);
+
+  let firstNumber = randomNumbers[0];
+  let secondNumber = randomNumbers[1];
+  let wrongAnswerOne = randomNumbers[2];
+  let wrongAnswerTwo = randomNumbers[3];
   let allAnswers = [];
 
   answer = firstNumber + secondNumber;
 
-  if (
-    wrongAnswerOne != wrongAnswerTwo &&
-    wrongAnswerOne != answer &&
-    wrongAnswerTwo != answer
-  ) {
-    document.querySelector("#num1").innerHTML = firstNumber;
-    document.querySelector("#num2").innerHTML = secondNumber;
+  document.querySelector("#num1").innerHTML = firstNumber;
+  document.querySelector("#num2").innerHTML = secondNumber;
 
-    allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
-    allAnswers.sort(() => Math.random() - 0.5);
+  allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
+  allAnswers.sort(() => Math.random() - 0.5);
 
-    optionOne.innerHTML = allAnswers[0];
-    optionTwo.innerHTML = allAnswers[1];
-    optionThree.innerHTML = allAnswers[2];
-  } else {
-    generateEquation();
-  }
+  optionOne.innerHTML = allAnswers[0];
+  optionTwo.innerHTML = allAnswers[1];
+  optionThree.innerHTML = allAnswers[2];
 };
 
 const checkAnswer = (event) => {
