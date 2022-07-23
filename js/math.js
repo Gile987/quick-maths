@@ -8,7 +8,6 @@ let answer = 0;
 
 const generateEquation = () => {
   let randomNumbers = generateMultipleNumbers(4);
-
   let firstNumber = randomNumbers[0];
   let secondNumber = randomNumbers[1];
   let wrongAnswerOne = randomNumbers[2];
@@ -24,9 +23,6 @@ const generateEquation = () => {
       secondNumber = temp;
       answer = firstNumber - secondNumber;
     };
-    while (wrongAnswerOne === wrongAnswerTwo) {
-      wrongAnswerTwo = Math.floor(Math.random() * 10);
-    }
   } else if (document.URL.includes("multiply")) {
     answer = firstNumber * secondNumber;
     wrongAnswerOne = Math.floor(Math.random() * 100);
@@ -35,23 +31,22 @@ const generateEquation = () => {
     firstNumber = Math.floor(Math.random() * 100) + 1;
     secondNumber = Math.floor(Math.random() * 10) + 1;
     answer = firstNumber / secondNumber;
-
     while (answer % 1 !== 0) {
       firstNumber = Math.floor(Math.random() * 99) + 1;
       secondNumber = Math.floor(Math.random() * 10) + 1;
       answer = firstNumber / secondNumber;
     };
-    while (wrongAnswerOne === wrongAnswerTwo) {
-      console.log("trigg");
-      wrongAnswerTwo = Math.floor(Math.random() * 10) + 1;
-    };
   } else {
     answer = firstNumber + secondNumber;
   };
 
-
-  while (wrongAnswerOne === answer || wrongAnswerTwo === answer ) {
+  while (wrongAnswerOne === answer || wrongAnswerTwo === answer) {
     wrongAnswerOne = Math.floor(Math.random() * 10);
+    wrongAnswerTwo = Math.floor(Math.random() * 10);
+  };
+
+  if (wrongAnswerOne === wrongAnswerTwo) {
+    console.log("wrongAnswerOne and wrongAnswerTwo are the same");
     wrongAnswerTwo = Math.floor(Math.random() * 10);
   };
 
@@ -60,7 +55,6 @@ const generateEquation = () => {
 
   allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
   allAnswers.sort(() => Math.random() >= 0.5);
-  console.log(allAnswers);
 
   optionOne.innerHTML = allAnswers[0];
   optionTwo.innerHTML = allAnswers[1];
