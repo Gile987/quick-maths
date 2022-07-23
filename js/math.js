@@ -15,8 +15,6 @@ const generateEquation = () => {
   let wrongAnswerTwo = randomNumbers[3];
   let allAnswers = [];
 
-  answer = firstNumber + secondNumber;
-
   if (document.URL.includes("subtract")) {
     answer = firstNumber - secondNumber;
     // comment out the following if statement if you want the result to sometimes be a negative number
@@ -26,21 +24,31 @@ const generateEquation = () => {
       secondNumber = temp;
       answer = firstNumber - secondNumber;
     };
+    while (wrongAnswerOne === wrongAnswerTwo) {
+      wrongAnswerTwo = Math.floor(Math.random() * 10);
+    }
   } else if (document.URL.includes("multiply")) {
     answer = firstNumber * secondNumber;
-    wrongAnswerOne = Math.floor(Math.random() * (99 + 1));
-    wrongAnswerTwo = Math.floor(Math.random() * (99 + 1));
+    wrongAnswerOne = Math.floor(Math.random() * 100);
+    wrongAnswerTwo = Math.floor(Math.random() * 100);
   } else if (document.URL.includes("divide")) {
-    firstNumber = Math.floor(Math.random() * (99 + 1));
-    secondNumber = Math.floor(Math.random() * 20) + 1;
+    firstNumber = Math.floor(Math.random() * 100) + 1;
+    secondNumber = Math.floor(Math.random() * 10) + 1;
     answer = firstNumber / secondNumber;
-    // ensure that the the first and second number divided give a whole number
+
     while (answer % 1 !== 0) {
-      firstNumber = Math.floor(Math.random() * (1 + 99));
+      firstNumber = Math.floor(Math.random() * 99) + 1;
       secondNumber = Math.floor(Math.random() * 10) + 1;
       answer = firstNumber / secondNumber;
-    }
+    };
+    while (wrongAnswerOne === wrongAnswerTwo) {
+      console.log("trigg");
+      wrongAnswerTwo = Math.floor(Math.random() * 10) + 1;
+    };
+  } else {
+    answer = firstNumber + secondNumber;
   };
+
 
   while (wrongAnswerOne === answer || wrongAnswerTwo === answer ) {
     wrongAnswerOne = Math.floor(Math.random() * 10);
@@ -52,6 +60,7 @@ const generateEquation = () => {
 
   allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
   allAnswers.sort(() => Math.random() >= 0.5);
+  console.log(allAnswers);
 
   optionOne.innerHTML = allAnswers[0];
   optionTwo.innerHTML = allAnswers[1];
