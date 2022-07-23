@@ -27,6 +27,22 @@ const generateEquation = () => {
       secondNumber = temp;
       answer = firstNumber - secondNumber;
     };
+  } else if (document.URL.includes("multiply")) {
+    answer = firstNumber * secondNumber;
+    wrongAnswerOne = Math.floor(Math.random() * (99 + 1));
+    wrongAnswerTwo = Math.floor(Math.random() * (99 + 1));
+    console.log("multiplication");
+  } else if (document.URL.includes("divide")) {
+    firstNumber = Math.floor(Math.random() * (99 + 1));
+    secondNumber = Math.floor(Math.random() * 20) + 1;
+    answer = firstNumber / secondNumber;
+    console.log("division");
+    // ensure that the the first and second number divided give a whole number
+    while (answer % 1 !== 0) {
+      firstNumber = Math.floor(Math.random() * (1 + 99));
+      secondNumber = Math.floor(Math.random() * 10) + 1;
+      answer = firstNumber / secondNumber;
+    }
   };
 
   while (wrongAnswerOne === answer || wrongAnswerTwo === answer ) {
