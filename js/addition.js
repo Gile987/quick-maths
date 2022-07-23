@@ -17,7 +17,19 @@ const generateEquation = () => {
 
   answer = firstNumber + secondNumber;
 
-  while (wrongAnswerOne === answer || wrongAnswerTwo === answer) {
+  if (document.URL.includes("subtract")) {
+    answer = firstNumber - secondNumber;
+    console.log("subtraction");
+    // comment out the following if statement if you want the result to sometimes be a negative number
+    if (firstNumber < secondNumber) {
+      let temp = firstNumber;
+      firstNumber = secondNumber;
+      secondNumber = temp;
+      answer = firstNumber - secondNumber;
+    };
+  };
+
+  while (wrongAnswerOne === answer || wrongAnswerTwo === answer ) {
     wrongAnswerOne = Math.floor(Math.random() * 10);
     wrongAnswerTwo = Math.floor(Math.random() * 10);
   };
