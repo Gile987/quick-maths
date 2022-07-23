@@ -17,15 +17,21 @@ const generateEquation = () => {
 
   answer = firstNumber + secondNumber;
 
+  while (wrongAnswerOne === answer || wrongAnswerTwo === answer) {
+    wrongAnswerOne = Math.floor(Math.random() * 10);
+    wrongAnswerTwo = Math.floor(Math.random() * 10);
+  };
+
   document.querySelector("#num1").innerHTML = firstNumber;
   document.querySelector("#num2").innerHTML = secondNumber;
 
   allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
-  allAnswers.sort(() => Math.random() - 0.5);
+  allAnswers.sort(() => Math.random() >= 0.5);
 
   optionOne.innerHTML = allAnswers[0];
   optionTwo.innerHTML = allAnswers[1];
   optionThree.innerHTML = allAnswers[2];
+  console.log(typeof answer)
 };
 
 const checkAnswer = (event) => {

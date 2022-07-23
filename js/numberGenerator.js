@@ -5,4 +5,4 @@ const generateMultipleNumbers = (n) => {
     multipleNumbers.add(Math.floor(Math.random() * 10));
   }
   return [...multipleNumbers];
-}
+};
