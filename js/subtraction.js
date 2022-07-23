@@ -15,7 +15,14 @@ const generateEquation = () => {
   let wrongAnswerTwo = randomNumbers[3];
   let allAnswers = [];
 
-  answer = firstNumber + secondNumber;
+  answer = firstNumber - secondNumber;
+
+  if (firstNumber < secondNumber) {
+    let temp = firstNumber;
+    firstNumber = secondNumber;
+    secondNumber = temp;
+    answer = firstNumber - secondNumber;
+  };
 
   while (wrongAnswerOne === answer || wrongAnswerTwo === answer) {
     wrongAnswerOne = Math.floor(Math.random() * 10);
