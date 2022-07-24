@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/css/style.css" />
+  <link rel="stylesheet" href="styles/css/main.min.css" />
 
   <title>Quick Maths</title>
 </head>
@@ -23,17 +23,17 @@
     <div class="container">
       <h1>Quick Maths</h1>
       <ul>
-        <li class="current"><a href="index.html">Addition</a></li>
-        <li><a href="subtract.html">Subtraction</a></li>
-        <li><a href="multiply.html">Multiplication</a></li>
-        <li><a href="divide.html">Division</a></li>
+        <li class="current"><span id="add">Addition</span></li>
+        <li><span id="sub">Subtraction</span></li>
+        <li><span id="mul">Multiplication</span></li>
+        <li><span id="div">Division</span></li>
       </ul>
     </div>
   </header>
   <div class="wrapper">
     <div class="equation">
       <h1 style="color: crimson" id="num1">2</h1>
-      <h1 style="color: aquamarine">+</h1>
+      <h1 id="operator" style="color: aquamarine">+</h1>
       <h1 style="color: goldenrod" id="num2">2</h1>
       <h1 style="color: palevioletred">=</h1>
       <h1 style="color: slateblue">?</h1>
@@ -45,7 +45,6 @@
     </div>
   </div>
 
-  <script src="./js/numberGenerator.js"></script>
   <script src="./js/math.js"></script>
 </body>
 </html>

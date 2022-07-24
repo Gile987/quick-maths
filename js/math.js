@@ -4,50 +4,60 @@ const optionThree = document.querySelector("#option3");
 const errorAudio = document.querySelector("#error");
 const correctAudio = document.querySelector("#correct");
 
+const add = document.querySelector("#add");
+const sub = document.querySelector("#sub");
+const mul = document.querySelector("#mul");
+const div = document.querySelector("#div");
+
 let answer = 0;
 
+const changeOperator = (event) => {
+  switch (event.target.id) {
+    case "add":
+      document.querySelector("#operator").innerHTML = `+`;
+      generateEquation();
+      break;
+    case "sub":
+      document.querySelector("#operator").innerHTML = `-`;
+      generateEquation();
+      break;
+    case "mul":
+      document.querySelector("#operator").innerHTML = `x`;
+      generateEquation();
+      break;
+    case "div":
+      document.querySelector("#operator").innerHTML = `/`;
+      generateEquation();
+      break;
+  }
+};
+
 const generateEquation = () => {
-  let randomNumbers = generateMultipleNumbers(4);
+  let multipleNumbers = new Set();
+  while (multipleNumbers.size !== 5) {
+    multipleNumbers.add(Math.floor(Math.random() * 10));
+  }
+  const randomNumbers = [...multipleNumbers];
+
   let firstNumber = randomNumbers[0];
   let secondNumber = randomNumbers[1];
   let wrongAnswerOne = randomNumbers[2];
   let wrongAnswerTwo = randomNumbers[3];
   let allAnswers = [];
 
-  if (document.URL.includes("subtract")) {
-    answer = firstNumber - secondNumber;
-    // comment out the following if statement if you want the result to sometimes be a negative number
-    if (firstNumber < secondNumber) {
-      let temp = firstNumber;
-      firstNumber = secondNumber;
-      secondNumber = temp;
+  switch (document.querySelector("#operator").innerHTML) {
+    case `+`:
+      answer = firstNumber + secondNumber;
+    break;
+    case `-`:
       answer = firstNumber - secondNumber;
-    };
-  } else if (document.URL.includes("multiply")) {
-    answer = firstNumber * secondNumber;
-    wrongAnswerOne = Math.floor(Math.random() * 100);
-    wrongAnswerTwo = Math.floor(Math.random() * 100);
-  } else if (document.URL.includes("divide")) {
-    firstNumber = Math.floor(Math.random() * 100) + 1;
-    secondNumber = Math.floor(Math.random() * 10) + 1;
-    answer = firstNumber / secondNumber;
-    while (answer % 1 !== 0) {
-      firstNumber = Math.floor(Math.random() * 99) + 1;
-      secondNumber = Math.floor(Math.random() * 10) + 1;
+    break;
+    case `x`:
+      answer = firstNumber * secondNumber;
+    break;
+    case `/`:
       answer = firstNumber / secondNumber;
-    };
-  } else {
-    answer = firstNumber + secondNumber;
-  };
-
-  while (wrongAnswerOne === answer || wrongAnswerTwo === answer) {
-    wrongAnswerOne = Math.floor(Math.random() * 10);
-    wrongAnswerTwo = Math.floor(Math.random() * 10);
-  };
-
-  if (wrongAnswerOne === wrongAnswerTwo) {
-    console.log("wrongAnswerOne and wrongAnswerTwo are the same");
-    wrongAnswerTwo = Math.floor(Math.random() * 10);
+    break;
   };
 
   document.querySelector("#num1").innerHTML = firstNumber;
@@ -77,5 +87,10 @@ const checkAnswer = (event) => {
 optionOne.addEventListener("click", checkAnswer);
 optionTwo.addEventListener("click", checkAnswer);
 optionThree.addEventListener("click", checkAnswer);
+
+add.addEventListener("click", changeOperator);
+sub.addEventListener("click", changeOperator);
+mul.addEventListener("click", changeOperator);
+div.addEventListener("click", changeOperator);
 
 generateEquation();
