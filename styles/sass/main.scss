@@ -23,7 +23,6 @@ body {
     list-style-type: none;
     font-size: 1.2rem;
     margin-left: 60%;
-
     span {
       color: #fff;
       text-decoration: none;
@@ -36,8 +35,7 @@ body {
     padding: 0 1.2rem;
   }
 
-
-  .current a::after {
+  .current span::after {
     content: "_";
     background-color: #fff;
     font-size: 0.4rem;

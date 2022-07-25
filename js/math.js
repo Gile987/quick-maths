@@ -29,20 +29,26 @@ const changeOperator = (event) => {
       document.querySelector("#operator").innerHTML = `/`;
       generateEquation();
       break;
-  }
+  };
 };
 
 const generateEquation = () => {
   let multipleNumbers = new Set();
-  while (multipleNumbers.size !== 5) {
+  while (multipleNumbers.size !== 4) {
     multipleNumbers.add(Math.floor(Math.random() * 10));
-  }
+  };
   const randomNumbers = [...multipleNumbers];
 
   let firstNumber = randomNumbers[0];
   let secondNumber = randomNumbers[1];
   let wrongAnswerOne = randomNumbers[2];
   let wrongAnswerTwo = randomNumbers[3];
+
+  while (wrongAnswerOne === wrongAnswerTwo) {
+    console.log("two wrong answers are the same");
+    wrongAnswerTwo = wrongAnswerTwo + 1;
+  };
+
   let allAnswers = [];
 
   switch (document.querySelector("#operator").innerHTML) {
@@ -50,13 +56,23 @@ const generateEquation = () => {
       answer = firstNumber + secondNumber;
     break;
     case `-`:
+      while (firstNumber < secondNumber) {
+        [firstNumber, secondNumber] = [secondNumber, firstNumber];
+      };
       answer = firstNumber - secondNumber;
     break;
     case `x`:
       answer = firstNumber * secondNumber;
     break;
     case `/`:
+      firstNumber = Math.floor(Math.random() * 100) + 1;
+      secondNumber = Math.floor(Math.random() * 10) + 1;
       answer = firstNumber / secondNumber;
+      while (answer % 1 !== 0) {
+        firstNumber = Math.floor(Math.random() * 99) + 1;
+        secondNumber = Math.floor(Math.random() * 10) + 1;
+        answer = firstNumber / secondNumber;
+      }; 
     break;
   };
 
@@ -70,6 +86,7 @@ const generateEquation = () => {
   optionTwo.innerHTML = allAnswers[1];
   optionThree.innerHTML = allAnswers[2];
 };
+
 
 const checkAnswer = (event) => {
   if (event.target.innerHTML == answer) {
