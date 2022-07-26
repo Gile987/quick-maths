@@ -76,6 +76,13 @@ const generateEquation = () => {
     break;
   };
 
+  while (answer === wrongAnswerOne || answer === wrongAnswerTwo) {
+    console.log("answer is the same as one of the wrong answers");
+    console.log("wrong answers: ", wrongAnswerOne, wrongAnswerTwo);
+    wrongAnswerOne = wrongAnswerOne + 1;
+    wrongAnswerTwo = wrongAnswerTwo + 1;
+  };
+
   document.querySelector("#num1").innerHTML = firstNumber;
   document.querySelector("#num2").innerHTML = secondNumber;
 
