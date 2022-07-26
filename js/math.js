@@ -11,10 +11,18 @@ const div = document.querySelector("#div");
 
 let answer = 0;
 
+const changeClass = (event) => {
+  let currentClass = document.querySelector(".current");
+  console.log(currentClass)
+  currentClass.classList.remove("current");
+  event.target.parentElement.classList.add("current");
+};
+
 const changeOperator = (event) => {
   switch (event.target.id) {
     case "add":
       document.querySelector("#operator").innerHTML = `+`;
+
       generateEquation();
       break;
     case "sub":
@@ -54,16 +62,16 @@ const generateEquation = () => {
   switch (document.querySelector("#operator").innerHTML) {
     case `+`:
       answer = firstNumber + secondNumber;
-    break;
+      break;
     case `-`:
       while (firstNumber < secondNumber) {
         [firstNumber, secondNumber] = [secondNumber, firstNumber];
       };
       answer = firstNumber - secondNumber;
-    break;
+      break;
     case `x`:
       answer = firstNumber * secondNumber;
-    break;
+      break;
     case `/`:
       firstNumber = Math.floor(Math.random() * 100) + 1;
       secondNumber = Math.floor(Math.random() * 10) + 1;
@@ -72,8 +80,8 @@ const generateEquation = () => {
         firstNumber = Math.floor(Math.random() * 99) + 1;
         secondNumber = Math.floor(Math.random() * 10) + 1;
         answer = firstNumber / secondNumber;
-      }; 
-    break;
+      };
+      break;
   };
 
   while (answer === wrongAnswerOne || answer === wrongAnswerTwo) {
@@ -112,9 +120,23 @@ optionOne.addEventListener("click", checkAnswer);
 optionTwo.addEventListener("click", checkAnswer);
 optionThree.addEventListener("click", checkAnswer);
 
-add.addEventListener("click", changeOperator);
-sub.addEventListener("click", changeOperator);
-mul.addEventListener("click", changeOperator);
-div.addEventListener("click", changeOperator);
+add.addEventListener("click", () => {
+  changeOperator(window.event)
+  changeClass(window.event)
+});
+sub.addEventListener("click", () => {
+  changeOperator(window.event)
+  changeClass(window.event)
+});
+mul.addEventListener("click", () => {
+  changeOperator(window.event)
+  changeClass(window.event)
+});
+div.addEventListener("click", () => {
+  changeOperator(window.event)
+  changeClass(window.event)
+});
+
+
 
 generateEquation();
