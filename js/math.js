@@ -13,7 +13,6 @@ let answer = 0;
 
 const changeClass = (event) => {
   let currentClass = document.querySelector(".current");
-  console.log(currentClass)
   currentClass.classList.remove("current");
   event.target.parentElement.classList.add("current");
 };
@@ -53,7 +52,6 @@ const generateEquation = () => {
   let wrongAnswerTwo = randomNumbers[3];
 
   while (wrongAnswerOne === wrongAnswerTwo) {
-    console.log("two wrong answers are the same");
     wrongAnswerTwo = wrongAnswerTwo + 1;
   };
 
@@ -85,8 +83,6 @@ const generateEquation = () => {
   };
 
   while (answer === wrongAnswerOne || answer === wrongAnswerTwo) {
-    console.log("answer is the same as one of the wrong answers");
-    console.log("wrong answers: ", wrongAnswerOne, wrongAnswerTwo);
     wrongAnswerOne = wrongAnswerOne + 1;
     wrongAnswerTwo = wrongAnswerTwo + 1;
   };
