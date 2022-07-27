@@ -71,12 +71,10 @@ const generateEquation = () => {
       answer = firstNumber * secondNumber;
       break;
     case `/`:
-      firstNumber = Math.floor(Math.random() * 100) + 1;
-      secondNumber = Math.floor(Math.random() * 10) + 1;
       answer = firstNumber / secondNumber;
       while (answer % 1 !== 0) {
-        firstNumber = Math.floor(Math.random() * 99) + 1;
-        secondNumber = Math.floor(Math.random() * 10) + 1;
+        firstNumber = Math.floor(Math.random() * 10);
+        secondNumber = Math.floor(Math.random() * 10);
         answer = firstNumber / secondNumber;
       };
       break;
