@@ -21,7 +21,6 @@ const changeOperator = (event) => {
   switch (event.target.id) {
     case "add":
       document.querySelector("#operator").innerHTML = `+`;
-
       generateEquation();
       break;
     case "sub":
@@ -96,7 +95,6 @@ const generateEquation = () => {
   optionThree.innerHTML = allAnswers[2];
 };
 
-
 const checkAnswer = (event) => {
   if (event.target.innerHTML == answer) {
     correctAudio.pause();
@@ -107,7 +105,7 @@ const checkAnswer = (event) => {
     errorAudio.pause();
     errorAudio.currentTime = 0;
     errorAudio.play();
-  }
+  };
 };
 
 optionOne.addEventListener("click", checkAnswer);
@@ -130,7 +128,5 @@ div.addEventListener("click", () => {
   changeOperator(window.event)
   changeClass(window.event)
 });
-
-
 
 generateEquation();

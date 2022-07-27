@@ -111,4 +111,18 @@ body {
   background-color: #fff;
   color: #afff92;
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  .wrapper .equation {
+    font-size: 3.5rem;
+    padding-top: 5rem;
+  }
+  .wrapper .answer_options {
+    font-size: 3.5rem;
+  }
+}
 /*# sourceMappingURL=main.css.map */
