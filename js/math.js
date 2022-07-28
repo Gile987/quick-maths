@@ -50,10 +50,6 @@ const generateEquation = () => {
   let wrongAnswerOne = randomNumbers[2];
   let wrongAnswerTwo = randomNumbers[3];
 
-  while (wrongAnswerOne === wrongAnswerTwo) {
-    wrongAnswerTwo = wrongAnswerTwo + 1;
-  };
-
   let allAnswers = [];
 
   switch (document.querySelector("#operator").innerHTML) {
@@ -68,6 +64,11 @@ const generateEquation = () => {
       break;
     case `x`:
       answer = firstNumber * secondNumber;
+      answerLength = answer.toString().length;
+      if (answerLength >= 2) {
+        wrongAnswerOne = Math.floor(Math.random() * (100 - 10) + 10);
+        wrongAnswerTwo = Math.floor(Math.random() * (100 - 10) + 10);
+      };
       break;
     case `/`:
       answer = firstNumber / secondNumber;
@@ -81,6 +82,10 @@ const generateEquation = () => {
 
   while (answer === wrongAnswerOne || answer === wrongAnswerTwo) {
     wrongAnswerOne = wrongAnswerOne + 1;
+    wrongAnswerTwo = wrongAnswerTwo + 1;
+  };
+
+  while (wrongAnswerOne === wrongAnswerTwo) {
     wrongAnswerTwo = wrongAnswerTwo + 1;
   };
 
