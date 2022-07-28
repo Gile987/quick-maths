@@ -20,6 +20,10 @@ body {
   }
 
   ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     list-style-type: none;
     font-size: 1.2rem;
     margin-left: 60%;
@@ -36,11 +40,10 @@ body {
     cursor: pointer;
   }
 
-  .current span::after {
-    content: "_";
-    background-color: #fff;
-    font-size: 0.4rem;
+  .current{
+    background-color: #fabeb5;
     display: block;
+    border-radius: 50%;
   }
 }
 
