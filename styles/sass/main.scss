@@ -46,7 +46,7 @@ body {
     cursor: pointer;
   }
 
-  .current{
+  .current {
     background-color: #fabeb5;
     border-radius: 50%;
   }
@@ -133,6 +133,36 @@ body {
     .answer_options {
       width: 100%;
       font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 428px) {
+  .container {
+    max-height: 8rem;
+
+    .title_holder {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    ul {
+      li {
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    .equation {
+      font-size: 2rem;
+    }
+
+    .answer_options {
+      font-size: 2rem;
     }
   }
 }
