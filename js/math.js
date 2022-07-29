@@ -112,7 +112,7 @@ const generateEquation = () => {
 const checkAnswer = (event) => {
   if (event.target.innerHTML == answer) {
     correctAudio.play();
-    correctAudio.onended = generateEquation;
+    generateEquation();
   } else {
     errorAudio.play();
   };
