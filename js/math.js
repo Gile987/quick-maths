@@ -93,8 +93,17 @@ const generateEquation = () => {
   document.querySelector("#num2").innerHTML = secondNumber;
 
   allAnswers = [answer, wrongAnswerOne, wrongAnswerTwo];
-  allAnswers.sort(() => Math.random() >= 0.5);
+  const shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    };
+  };
 
+  shuffleArray(allAnswers);
+  
   optionOne.innerHTML = allAnswers[0];
   optionTwo.innerHTML = allAnswers[1];
   optionThree.innerHTML = allAnswers[2];
@@ -102,13 +111,9 @@ const generateEquation = () => {
 
 const checkAnswer = (event) => {
   if (event.target.innerHTML == answer) {
-    correctAudio.pause();
-    correctAudio.currentTime = 0;
     correctAudio.play();
-    generateEquation();
+    correctAudio.onended = generateEquation;
   } else {
-    errorAudio.pause();
-    errorAudio.currentTime = 0;
     errorAudio.play();
   };
 };
