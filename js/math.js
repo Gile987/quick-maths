@@ -115,6 +115,11 @@ const checkAnswer = (event) => {
     generateEquation();
   } else {
     errorAudio.play();
+    event.target.classList.add("wrong");
+    setTimeout(() => {
+      event.target.classList.remove("wrong");
+    }, 1000);
+
   };
 };
 
