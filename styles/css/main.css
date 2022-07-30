@@ -77,6 +77,16 @@ body {
   border-radius: 50%;
 }
 
+.container h1 {
+  margin-bottom: 0.8rem;
+  text-decoration: underline;
+}
+
+.container #points {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
