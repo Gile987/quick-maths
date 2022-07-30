@@ -3,6 +3,7 @@ const optionTwo = document.querySelector("#option2");
 const optionThree = document.querySelector("#option3");
 const errorAudio = document.querySelector("#error");
 const correctAudio = document.querySelector("#correct");
+const points = document.querySelector("#points");
 
 const add = document.querySelector("#add");
 const sub = document.querySelector("#sub");
@@ -10,6 +11,7 @@ const mul = document.querySelector("#mul");
 const div = document.querySelector("#div");
 
 let answer = 0;
+let score = 0;
 
 const changeClass = (event) => {
   let currentClass = document.querySelector(".current");
@@ -103,23 +105,29 @@ const generateEquation = () => {
   };
 
   shuffleArray(allAnswers);
-  
+
   optionOne.innerHTML = allAnswers[0];
   optionTwo.innerHTML = allAnswers[1];
   optionThree.innerHTML = allAnswers[2];
 };
 
+const addPoints = (num) => {
+  score = score + num;
+  points.innerHTML = score;
+};
+
 const checkAnswer = (event) => {
   if (event.target.innerHTML == answer) {
     correctAudio.play();
+    addPoints(1);
     generateEquation();
   } else {
     errorAudio.play();
+    addPoints(-1);
     event.target.classList.add("wrong");
     setTimeout(() => {
       event.target.classList.remove("wrong");
     }, 1000);
-
   };
 };
 
