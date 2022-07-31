@@ -102,6 +102,10 @@ body {
   padding-top: 60px;
 }
 
+.container #achis .show {
+  display: block;
+}
+
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
