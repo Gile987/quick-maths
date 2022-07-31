@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
 
   <title>Quick Maths</title>
 </head>
+
 <body>
   <audio id="error">
     <source src="/audio/error.mp3" type="audio/mpeg">
@@ -25,6 +27,23 @@
         <h1>Quick Maths</h1>
         <h2>Points:</h2>
         <p id="points">0</p>
+      </div>
+      <div id="achis">
+        <h3>Achievements:</h3>
+        <div class="achis_holder">
+          <div class="achis_item">
+            <p id="achis_1">0</p>
+          </div>
+          <div class="achis_item">
+            <p id="achis_2">0</p>
+          </div>
+          <div class="achis_item">
+            <p id="achis_3">0</p>
+          </div>
+          <div class="achis_item">
+            <p id="achis_4">0</p>
+          </div>
+        </div>
       </div>
       <ul>
         <li class="current"><span id="add">Addition</span></li>
@@ -50,5 +69,7 @@
   </div>
 
   <script src="./js/math.js"></script>
+  <script src="./js/achis.js"></script>
 </body>
+
 </html>

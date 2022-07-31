@@ -55,9 +55,26 @@ body {
     margin-bottom: 0.8rem;
     text-decoration: underline;
   }
+
   #points {
     color: #fff;
     font-size: 1.2rem;
+  }
+
+  #achis {
+    .achis_holder {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      z-index: 1;
+      width: 75%;
+      height: 70%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
   }
 }
 
@@ -97,7 +114,7 @@ body {
       &.wrong {
         animation: shake 1s;
         animation-iteration-count: infinite;
-        background-color: red!important;
+        background-color: red !important;
 
         @keyframes shake {
           0% {
