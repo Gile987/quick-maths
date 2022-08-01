@@ -75,8 +75,22 @@ body {
       background-color: rgba(0, 0, 0, 0.4);
       padding-top: 60px;
 
+      .achis_item {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        border: 1px solid #888;
+        width: 20%;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        border-radius: 10px;
+      }
 
+      .receive_achi {
+        background-color: yellowgreen;
+      }
     }
+
     .show {
       display: block;
     }

@@ -102,6 +102,21 @@ body {
   padding-top: 60px;
 }
 
+.container #achis .achis_holder .achis_item {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 20%;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+}
+
+.container #achis .achis_holder .receive_achi {
+  background-color: yellowgreen;
+}
+
 .container #achis .show {
   display: block;
 }
