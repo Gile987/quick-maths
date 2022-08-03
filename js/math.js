@@ -111,11 +111,11 @@ const generateEquation = () => {
 
 const checkAnswer = (event) => {
   if (event.target.innerHTML == answer) {
-    correctAudio.play();
+    // correctAudio.play();
     addPoints(1);
     generateEquation();
   } else {
-    errorAudio.play();
+    // errorAudio.play();
     addPoints(-1);
     event.target.classList.add("wrong");
     setTimeout(() => {

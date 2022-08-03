@@ -26,23 +26,13 @@ const state = {
 };
 
 const checkAchi = () => {
-  const { score, points, achi } = state;
-  Object.keys(points).forEach((key) => {
-    console.log(localStorage)
-    const achiStatus = localStorage.getItem(points[key]);
-    if (achiStatus === null) {
-      achi[points[key]] = false;
-    } else {
-      achi[points[key]] = achiStatus;
+  for (let key in state.points) {
+    if (state.score >= key && state.achi[state.points[key]] === false) {
+      state.achi[state.points[key]] = true;
+      document.querySelector(`#${state.points[key]}`).classList.add("receive_achi");
+      localStorage.setItem("achi", JSON.stringify(state.achi));
     };
-    if (score >= key) {
-      achi[points[key]] = true;
-    };
-    if (achi[points[key]]) {
-      document.querySelector(`#${points[key]}`).classList.add("receive_achi");
-      localStorage.setItem(points[key], true);
-    };
-  });
+  };
 };
 
 const addPoints = (num) => {
@@ -53,12 +43,25 @@ const addPoints = (num) => {
 };
 
 const highScore = () => {
-  state.highScore = localStorage.getItem("highScore");
   if (state.score > state.highScore) {
     localStorage.setItem("highScore", state.score);
     state.highScore = state.score;
-  }
-  document.querySelector("#high_score").innerHTML = state.highScore;
+  };
+};
+
+const loadStorage = () => {
+  if (localStorage.getItem("highScore")) {
+    state.highScore = localStorage.getItem("highScore");
+    document.querySelector("#high_score").innerHTML = state.highScore;
+  };
+  if (localStorage.getItem("achi")) {
+    state.achi = JSON.parse(localStorage.getItem("achi"));
+    for (let key in state.achi) {
+      if (state.achi[key] === true) {
+        document.querySelector(`#${key}`).classList.add("receive_achi");
+      };
+    };
+  };
 };
 
 const clearClick = () => {
@@ -66,5 +69,5 @@ const clearClick = () => {
 };
 clear.addEventListener("click", clearClick);
 
-highScore();
+loadStorage();
 checkAchi();
