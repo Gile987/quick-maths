@@ -64,11 +64,7 @@ body {
   #achis {
     height: 1.2rem;
     cursor: pointer;
-
-    h1 {
-      color: #fff;
-      text-decoration: none;
-    }
+    color: #fff;
 
     .achis_holder {
       position: fixed;
@@ -245,8 +241,20 @@ body {
 
 @media (max-width: 428px) {
   .container {
-    max-height: 8rem;
+    max-height: 13rem;
+    #achis {
+      height: 9rem;
+      position: relative;
 
+      #achi_button {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    }
     .title_holder {
       h1 {
         font-size: 1.5rem;
