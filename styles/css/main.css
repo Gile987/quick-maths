@@ -87,6 +87,16 @@ body {
   font-size: 1.2rem;
 }
 
+.container #achis {
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.container #achis h1 {
+  color: #fff;
+  text-decoration: none;
+}
+
 .container #achis .achis_holder {
   position: fixed;
   top: 50%;

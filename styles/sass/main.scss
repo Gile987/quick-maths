@@ -62,6 +62,14 @@ body {
   }
 
   #achis {
+    height: 1.2rem;
+    cursor: pointer;
+
+    h1 {
+      color: #fff;
+      text-decoration: none;
+    }
+
     .achis_holder {
       position: fixed;
       top: 50%;
