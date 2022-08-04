@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  padding: 1.2rem;
+  padding: 1.8rem;
   overflow: hidden;
   background-color: #fe4a49;
   display: -webkit-box;
@@ -57,9 +57,10 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
+  font-size: 0.9rem;
   font-weight: 300;
   color: #FFF;
-  background-color: #9a4ef1;
+  background-color: #fabeb5;
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
   text-align: center;
   -webkit-transition: all 0.2s;
@@ -69,7 +70,7 @@ body {
 .container .title_holder #achis #achi_button:hover, .container .title_holder #achis #achi_button:focus {
   border-color: white;
   background-color: #fff;
-  color: #9a4ef1;
+  color: #fabeb5;
   text-decoration: none;
   cursor: pointer;
 }
