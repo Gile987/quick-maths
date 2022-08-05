@@ -72,21 +72,26 @@ body {
           background-color: #fefefe;
           margin: 5% auto 15% auto;
           border: 1px solid #888;
-          width: 20%;
+          width: 10%;
           padding: 20px;
           text-align: center;
           position: relative;
           border-radius: 10px;
+          font-size: 1.6rem;
+          flex: 0 32%;
+          height: 10%;
+          margin-bottom: 2%;
         }
 
         .receive_achi {
           background-color: yellowgreen;
         }
-
       }
 
       .show {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
       }
     }
   }
@@ -272,14 +277,19 @@ body {
   .container {
     max-height: 13rem;
 
-    #achis {
-      height: 9rem;
-
-    }
-
     .title_holder {
       h1 {
         font-size: 1.5rem;
+      }
+
+      #achis {
+        height: 9rem;
+
+        .achis_holder {
+          .achis_item {
+            font-size: 1rem;
+          }
+        }
       }
     }
 
