@@ -370,7 +370,7 @@ body {
 
 @media (max-width: 428px) {
   .container {
-    max-height: 13rem;
+    max-height: 14rem;
   }
   .container .title_holder h1 {
     font-size: 1.5rem;
