@@ -15,6 +15,7 @@ achisToggle.addEventListener("click", () => {
 const state = {
   score: 0,
   highScore: 0,
+  previousScore: 0,
   points: {
     10: "ten_points",
     20: "twenty_points",
@@ -22,6 +23,7 @@ const state = {
   achi: {
     ten_points: false,
     twenty_points: false,
+    ten_point_combo: false,
   },
 };
 
@@ -32,6 +34,11 @@ const checkAchi = () => {
       document.querySelector(`#${state.points[key]}`).classList.add("receive_achi");
       localStorage.setItem("achi", JSON.stringify(state.achi));
     };
+  };
+  if (state.score - state.previousScore >= 10) {
+    state.achi.ten_point_combo = true;
+    document.querySelector("#ten_point_combo").classList.add("receive_achi");
+    localStorage.setItem("achi", JSON.stringify(state.achi));
   };
 };
 
