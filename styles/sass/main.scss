@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  padding: 1.2rem;
+  padding: 1.8rem;
   overflow: hidden;
   background-color: #fe4a49;
   display: flex;
@@ -23,6 +23,77 @@ body {
     align-items: center;
     text-align: center;
     color: #fff;
+
+    #achis {
+      height: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+
+      #achi_button {
+        display: inline-block;
+        padding: 0.3em 1.2em;
+        margin: 0 0.1em 0.1em 0;
+        border: 0.16em solid rgba(255, 255, 255, 0);
+        border-radius: 2em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #FFF;
+        background-color: #fabeb5;
+        text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+        text-align: center;
+        transition: all 0.2s;
+
+        &:hover,
+        &:focus {
+          border-color: rgba(255, 255, 255, 1);
+          background-color: #fff;
+          color: #fabeb5;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+
+      .achis_holder {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        z-index: 1;
+        width: 75%;
+        height: 70%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+
+        .achis_item {
+          background-color: #fefefe;
+          margin: 5% auto 15% auto;
+          border: 1px solid #888;
+          width: 10%;
+          padding: 20px;
+          text-align: center;
+          position: relative;
+          border-radius: 10px;
+          font-size: 1.6rem;
+          flex: 0 32%;
+          height: 10%;
+          margin-bottom: 2%;
+        }
+
+        .receive_achi {
+          background-color: yellowgreen;
+        }
+      }
+
+      .show {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
   }
 
   ul {
@@ -55,10 +126,13 @@ body {
     margin-bottom: 0.8rem;
     text-decoration: underline;
   }
+
   #points {
     color: #fff;
     font-size: 1.2rem;
   }
+
+
 }
 
 .wrapper {
@@ -97,7 +171,7 @@ body {
       &.wrong {
         animation: shake 1s;
         animation-iteration-count: infinite;
-        background-color: red!important;
+        background-color: red !important;
 
         @keyframes shake {
           0% {
@@ -201,11 +275,21 @@ body {
 
 @media (max-width: 428px) {
   .container {
-    max-height: 8rem;
+    max-height: 14rem;
 
     .title_holder {
       h1 {
         font-size: 1.5rem;
+      }
+
+      #achis {
+        height: 9rem;
+
+        .achis_holder {
+          .achis_item {
+            font-size: 1rem;
+          }
+        }
       }
     }
 
