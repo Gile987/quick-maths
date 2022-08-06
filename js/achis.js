@@ -24,6 +24,7 @@ const state = {
     ten_points: false,
     twenty_points: false,
     ten_point_combo: false,
+    twenty_point_combo: false,
   },
 };
 
@@ -50,6 +51,12 @@ const addPoints = (num) => {
   if (state.counter === 10) {
     state.achi.ten_point_combo = true;
     document.querySelector("#ten_point_combo").classList.add("receive_achi");
+    localStorage.setItem("achi", JSON.stringify(state.achi));
+  };
+
+  if (state.counter === 20) {
+    state.achi.twenty_point_combo = true;
+    document.querySelector("#twenty_point_combo").classList.add("receive_achi");
     localStorage.setItem("achi", JSON.stringify(state.achi));
   };
 
